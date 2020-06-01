@@ -1,20 +1,20 @@
-<h1>Current Products</h1>
+<h1 class="title"><%= @store.name %></h1>
+<%= link_to @store.url, :class => "subtitle" %>
+<h1 class="subtitle">Current Products</h1>
 <table class="table">
   <tr>
     <th>Name</th>
     <th>URL</th>
     <th>Variant</th>
     <th>In Stock</th>
-    <th>Store</th>
   </tr>
  
-  <% @products.each do |product| %>
+  <% @store.products.each do |product| %>
     <tr>
-      <td><%= link_to product.name, product_path(product) %></td>
+      <td><%= product.name %></td>
       <td><%= link_to 'View on site', product.url %></td>
       <td><%= product.variant_name %></td>
       <td><%= product.in_stock %></td>
-      <td><%= link_to product.store.name, store_path(product.store) %></td>
     </tr>
   <% end %>
 </table>

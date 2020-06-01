@@ -1,0 +1,14 @@
+<h1 class="title">Stores</h1>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Number of products</th>
+  </tr>
+ 
+  <% @stores.each do |store| %>
+    <tr>
+      <td><%= link_to store.name, store_path(store) %></td>
+      <td><%= store.products.length %></td>
+    </tr>
+  <% end %>
+</table>

@@ -13,28 +13,25 @@
   
   <body>
     <header>
-      <nav>
-        <ul>
-          <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>
-            <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete   %></li>
-          <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path  %></li>
-            <li><%= link_to "Login", new_user_session_path  %></li>
-          <% end %>
-        </ul>
-      </nav>
-      <h1>Stockie</h1>
+      <%= render 'layouts/navbar' %>
     </header>
     <main>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
+      <div class="container">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+      </div>
     </main>
   </body>
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Stockie</strong> by <a href="https://github.com/briscoooe">Brian Briscoe</a>.
+    </p>
+  </div>
+</footer>
 </html>
