@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StockieWebApp</title>
+    <title>Stockie</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
+  
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <ul>
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>
+            <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete   %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path  %></li>
+            <li><%= link_to "Login", new_user_session_path  %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <h1>Stockie</h1>
+    </header>
+    <main>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>
