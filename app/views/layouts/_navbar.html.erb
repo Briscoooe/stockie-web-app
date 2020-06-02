@@ -1,41 +1,35 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" style="border-radius:0" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <h1 class="navbar-item title">
       Stockie
     </h1>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        <%= link_to 'Products', controller: 'products' %>
-      </a>
+      <%= link_to "Products", {controller: "products"}, class: "navbar-item" %>
 
-      <a class="navbar-item">
-        <%= link_to 'Stores', controller: 'stores' %>
-      </a>
+      <%= link_to "Stores", {controller: "stores"}, class: "navbar-item" %>
 
-      <a class="navbar-item">
-        <%= link_to 'Categories', controller: 'categories' %>
-      </a>
+      <%= link_to "Categories", {controller: "categories"}, class: "navbar-item" %>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-        <% if user_signed_in? %>
-          <%= link_to current_user.email, edit_user_registration_path %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "button is-primary" %>
-          <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
-          <%= link_to "Login", new_user_session_path, :class => "button is-light"  %>
-        <% end %>
+          <% if user_signed_in? %>
+            <%= link_to current_user.email, edit_user_registration_path %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "button is-primary" %>
+            <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
+            <%= link_to "Login", new_user_session_path, :class => "button is-light"  %>
+          <% end %>
         </div>
       </div>
     </div>

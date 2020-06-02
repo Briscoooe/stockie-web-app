@@ -17,15 +17,17 @@
       <%= render 'layouts/navbar' %>
     </header>
     <main>
-      <div class="container is-fluid">
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-        <%= yield %>
-      </div>
+      <section class="section">
+        <div class="container">
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+      </section>
     </main>
   </body>
   <footer class="footer">
