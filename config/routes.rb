@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :products
   resources :stores
   resources :categories
+  resources :subscriptions
   
   devise_for :users, :controllers => { registrations: 'registrations'}
 end

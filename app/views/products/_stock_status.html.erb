@@ -1,0 +1,11 @@
+<div class="has-text-centered">
+    <% if @product.in_stock %>
+        <span class="icon has-text-success">
+            <%= fa_icon 'check-square' %>
+        </span>
+    <% else %>
+        <span class="icon has-text-danger">
+            <%= fa_icon 'ban' %>
+        </span>
+    <% end %>
+</div>

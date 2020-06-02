@@ -4,17 +4,15 @@
 <table class="table">
   <tr>
     <th>Name</th>
-    <th>URL</th>
     <th>Variant</th>
     <th>In Stock</th>
   </tr>
  
   <% @store.products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
-      <td><%= link_to 'View on site', product.url %></td>
+      <td><%= link_to product.name, product_path(product) %></td>
       <td><%= product.variant_name %></td>
-      <td><%= product.in_stock %></td>
+      <td><%= render 'products/stock_status', :@product => product %></td>
     </tr>
   <% end %>
 </table>

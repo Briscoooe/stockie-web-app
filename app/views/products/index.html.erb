@@ -4,19 +4,15 @@
 <table class="table is-striped is-hoverable">
 <tr>
     <th>Name</th>
-    <th>URL</th>
     <th>Variant</th>
     <th>In Stock</th>
-    <th>Store</th>
   </tr>
  
   <% @products.each do |product| %>
     <tr>
       <td><%= link_to product.name, product_path(product) %></td>
-      <td><%= link_to 'View on site', product.url %></td>
       <td><%= product.variant_name %></td>
-      <td><%= product.in_stock %></td>
-      <td><%= link_to product.store.name, store_path(product.store) %></td>
+      <td><%= render 'stock_status', :@product => product %></td>
     </tr>
   <% end %>
 </table>
