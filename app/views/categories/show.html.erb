@@ -12,7 +12,7 @@
             <tr>
             <td><%= link_to product.name, product_path(product) %></td>
             <td><%= product.variant_name %></td>
-            <td><%= link_to product.name, product_path(product) %></td>
+            <td><%= link_to product.store.name, product_path(product.store) %></td>
             <td><%= render 'products/stock_status', :@product => product %></td>
             </tr>
         <% end %>

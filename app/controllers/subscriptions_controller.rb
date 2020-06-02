@@ -21,8 +21,9 @@ class SubscriptionsController < ApplicationController
 
     def destroy
         @subscription = Subscription.find(params[:id])
-        topic = SNS.topic(@subscription.aws_subscription_id)
-        topic.unsubscribe
+        res = SNS.client.unsubscribe({
+            'subscription_arn': @subscription.aws_subscription_id
+        })
         @subscription.destroy
       
         redirect_to user_subscriptions_path

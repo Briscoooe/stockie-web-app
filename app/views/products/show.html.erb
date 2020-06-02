@@ -1,4 +1,4 @@
-<h1 class="title"><%= @product.name %></h1>
+<h1 class="title is-1"><%= @product.name %></h1>
 <%= image_tag(@product.image_url, height: '250', width: '250') %>
 <%= link_to 'View on site', @product.url %>
 <% if user_signed_in? %>

@@ -10,8 +10,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.phone_field :phone, autofocus: true, :class => "input" %>
+    <%= f.label :phone, 'Phone number (including country code)' %><br />
+    <%= f.phone_field :phone, autofocus: true, :class => "input", placeholder: "+353871234567" %>
   </div>
 
   <div class="field">
