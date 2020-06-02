@@ -21,6 +21,18 @@ $primary-black: rgb(35, 37, 40);
     }
 }
 
+.navbar-start {
+    background-color: $primary-dark-color;
+}
+.navbar-menu {
+    padding: 0
+}
+
+.navbar-end {
+    background-color: $primary-dark-color;
+    padding: 0;
+}
+
 .button.is-primary {
     background-color: $primary-light-color;
     :hover {
