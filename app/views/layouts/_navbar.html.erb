@@ -24,9 +24,10 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-            <%= link_to current_user.email, edit_user_registration_path %>
+            <%= link_to 'My Subscriptions', user_subscriptions_path(current_user), class: "button is-primary" %>
+            <%= link_to 'My Account', edit_user_registration_path, class: "button is-primary" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "button is-primary" %>
-            <% else %>
+          <% else %>
             <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
             <%= link_to "Login", new_user_session_path, :class => "button is-light"  %>
           <% end %>

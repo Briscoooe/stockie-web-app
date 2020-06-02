@@ -2,7 +2,25 @@
 <%= image_tag(@product.image_url, height: '250', width: '250') %>
 <%= link_to 'View on site', @product.url %>
 <% if user_signed_in? %>
-    <%= link_to "Notify Me!", new_subscription_path, :class => "button is-primary" %>
+    <a role="button" class="button is-primary" onclick="document.querySelector('.modal').classList.toggle('is-active');">Notify me!</a>
+    <div class="modal">
+        <div class="modal-background" onclick="document.querySelector('.modal').classList.toggle('is-active');"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Create Subscription</p>
+                <button class="delete" aria-label="close" onclick="document.querySelector('.modal').classList.toggle('is-active');"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="section">
+                    Are you sure?
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <%= link_to 'Subscribe', user_subscriptions_path(user_id: current_user, product_id: @product.id), method: :post, class: "button is-success" %>
+                <button class="button" onclick="document.querySelector('.modal').classList.toggle('is-active');">Cancel</button>
+            </footer>
+        </div>
+    </div>
 <% else %>
     <%= link_to "Sign up to be notified", new_user_registration_path, :class => "button is-primary" %>
 <% end %>

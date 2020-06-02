@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_095149) do
+ActiveRecord::Schema.define(version: 2020_06_02_164815) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -44,11 +44,12 @@ ActiveRecord::Schema.define(version: 2020_06_02_095149) do
 
   create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.string "phone"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "aws_subscription_id"
     t.index ["product_id"], name: "index_subscriptions_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_subscriptions_on_user_id_and_product_id", unique: true
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 

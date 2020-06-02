@@ -20,10 +20,14 @@
       <section class="section">
         <div class="container">
           <% if notice %>
-            <p class="alert alert-success"><%= notice %></p>
+            <div class="notification is-primary is-light">
+              <p class="alert alert-success"><%= notice %></p>
+            </div>
           <% end %>
           <% if alert %>
-            <p class="alert alert-danger"><%= alert %></p>
+            <div class="notification is-danger is-light">
+              <p class="alert alert-danger"><%= alert %></p>
+            </div>
           <% end %>
           <%= yield %>
         </div>

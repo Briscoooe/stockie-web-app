@@ -1,0 +1,24 @@
+<h1 class="title">My Subscriptions</h1>
+<div class="table-container">
+
+<% if current_user.subscriptions %>
+    <table class="table">
+        <tr>
+            <th>Product</th>
+            <th>Variant name</th>
+            <th>Subscribed since</th>
+            <th></th>
+        </tr>
+        <% current_user.subscriptions.each do |subscription| %>
+            <tr>
+            <td><%= link_to subscription.product.name, product_path(subscription.product) %></td>
+            <td><%= subscription.product.variant_name %></td>
+            <td><%= subscription.created_at.strftime("%FT%T") %></td>
+            <td><%= link_to 'Unsubscribe', user_subscription_path(id: subscription.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </table>
+    <% else %>
+        <h1 class="subtitle">You have no subscriptions</h1>
+    <% end %>
+</div>

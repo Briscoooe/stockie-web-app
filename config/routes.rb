@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htmli
   root to: "products#index"
 
+  devise_for :users, :controllers => { registrations: 'registrations'}
+  
   resources :products
   resources :stores
   resources :categories
-  resources :subscriptions
+  resources :users do
+    resources :subscriptions
+  end
   
-  devise_for :users, :controllers => { registrations: 'registrations'}
 end

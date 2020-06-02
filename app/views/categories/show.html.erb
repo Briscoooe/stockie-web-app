@@ -1,0 +1,20 @@
+<h1 class="title is-size-1"><%= @category.name %></h1>
+<div class="table-container">
+    <table class="table is-striped is-hoverable">
+        <tr>
+            <th>Name</th>
+            <th>Variant</th>
+            <th>Store</th>
+            <th>In Stock</th>
+        </tr>
+        
+        <% @category.products.each do |product| %>
+            <tr>
+            <td><%= link_to product.name, product_path(product) %></td>
+            <td><%= product.variant_name %></td>
+            <td><%= link_to product.name, product_path(product) %></td>
+            <td><%= render 'products/stock_status', :@product => product %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

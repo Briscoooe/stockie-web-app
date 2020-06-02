@@ -1,0 +1,1 @@
+SNS = Aws::SNS::Resource.new(region: 'eu-west-1')
