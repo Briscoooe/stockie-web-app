@@ -14,7 +14,7 @@
             <td><%= link_to subscription.product.name, product_path(subscription.product) %></td>
             <td><%= subscription.product.variant_name %></td>
             <td><%= subscription.created_at.strftime("%FT%T") %></td>
-            <td><%= link_to 'Unsubscribe', user_subscription_path(id: subscription.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Unsubscribe', subscription_path(id: subscription.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </table>

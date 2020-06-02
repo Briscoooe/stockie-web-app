@@ -16,7 +16,7 @@
                 </div>
             </section>
             <footer class="modal-card-foot">
-                <%= link_to 'Subscribe', user_subscriptions_path(user_id: current_user, product_id: @product.id), method: :post, class: "button is-success" %>
+                <%= link_to 'Subscribe', subscriptions_path(product_id: @product.id), method: :post, class: "button is-success" %>
                 <button class="button" onclick="document.querySelector('.modal').classList.toggle('is-active');">Cancel</button>
             </footer>
         </div>

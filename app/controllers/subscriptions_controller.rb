@@ -1,4 +1,5 @@
 class SubscriptionsController < ApplicationController 
+    before_action :authenticate_user!
     def index
     end
 
@@ -6,7 +7,7 @@ class SubscriptionsController < ApplicationController
         @subscription = Subscription.new(subscription_params)
         topic = SNS.topic("arn:aws:sns:eu-west-1:645069479050:product_id-#{params[:product_id]}")
 
-        @user = User.find(params[:user_id])
+        @user = current_user
         sub = topic.subscribe({
             protocol: 'sms',
             endpoint: @user.phone,
@@ -26,7 +27,7 @@ class SubscriptionsController < ApplicationController
         })
         @subscription.destroy
       
-        redirect_to user_subscriptions_path
+        redirect_to subscriptions_path
     end
 
     def show    
