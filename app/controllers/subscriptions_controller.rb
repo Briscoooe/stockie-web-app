@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
 
     def create
         @subscription = Subscription.new(subscription_params)
-        puts "Subscribing to topic product_id#{product_id}"
+        puts "Subscribing to topic product_id#{params[:product_id]}"
         topic = SNS.topic("arn:aws:sns:eu-west-1:645069479050:product_id-#{params[:product_id]}")
 
         @user = current_user
