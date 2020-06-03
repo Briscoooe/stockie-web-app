@@ -9,16 +9,16 @@ class SubscriptionsController < ApplicationController
         topic = SNS.topic("arn:aws:sns:eu-west-1:645069479050:product_id-#{params[:product_id]}")
 
         @user = current_user
+        @subscription.user = @user
         sub = topic.subscribe({
             protocol: 'sms',
             endpoint: @user.phone,
         })
 
         @subscription.aws_subscription_id = sub.arn
-
         @subscription.save
         flash[:info] = "Successfully subscribed!"
-        render 'subscriptions/index'
+        redirect_to subscriptions_path
     end
 
     def destroy
@@ -36,6 +36,6 @@ class SubscriptionsController < ApplicationController
     end
     private
         def subscription_params
-            params.permit(:product_id, :user_id)
+            params.permit(:product_id)
         end
 end
