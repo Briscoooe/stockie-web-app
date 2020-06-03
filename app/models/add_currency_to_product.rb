@@ -1,0 +1,2 @@
+class AddCurrencyToProduct < ApplicationRecord
+end
