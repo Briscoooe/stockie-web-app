@@ -17,29 +17,25 @@
     <header>
       <%= render 'layouts/navbar' %>
     </header>
-    <main>
-      <section class="section">
-        <div class="container">
-          <% if notice %>
-            <div class="notification is-primary is-light">
-              <p class="alert alert-success"><%= notice %></p>
-            </div>
-          <% end %>
-          <% if alert %>
-            <div class="notification is-danger is-light">
-              <p class="alert alert-danger"><%= alert %></p>
-            </div>
-          <% end %>
-          <%= yield %>
+    <section class="section">
+      <div class="container">
+        <% if notice %>
+          <div class="notification is-primary is-light">
+            <p class="alert alert-success"><%= notice %></p>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="notification is-danger is-light">
+            <p class="alert alert-danger"><%= alert %></p>
+          </div>
+        <% end %>
+        <div class="columns is-centered">
+          <div class="column is-two-thirds">
+            <%= yield %>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   </body>
-  <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Stockie</strong> by <a href="https://github.com/briscoooe">Brian Briscoe</a>
-    </p>
-  </div>
-</footer>
+  <%= render 'layouts/footer' %>
 </html>

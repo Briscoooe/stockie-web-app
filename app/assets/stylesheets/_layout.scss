@@ -39,3 +39,11 @@ $primary-black: rgb(35, 37, 40);
 a {
     color: $link-color
 }
+
+
+.main-table {
+    @extend .table;
+    @extend .is-striped;
+    @extend .is-hoverable;
+    @extend .is-fullwidth;
+}

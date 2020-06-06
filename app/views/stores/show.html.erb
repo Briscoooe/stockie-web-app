@@ -1,20 +1,22 @@
 <h1 class="title is-1"><%= @store.name %></h1>
 <%= link_to @store.url, :class => "subtitle" %>
 <h1 class="subtitle">Current Products</h1>
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Variant</th>
-    <th>In Stock</th>
-    <th>Price</th>
-  </tr>
- 
-  <% @store.products.each do |product| %>
+<div class="table-container">
+  <table class="table is-striped is-hoverable is-fullwidth">
     <tr>
-      <td><%= link_to product.name, product_path(product) %></td>
-      <td><%= product.variant_name %></td>
-      <td><%= render 'products/stock_status', :@product => product %></td>
-      <td><%= render 'products/price', :@product => product %></td>
+      <th>Name</th>
+      <th>Variant</th>
+      <th>In Stock</th>
+      <th>Price</th>
     </tr>
-  <% end %>
-</table>
+  
+    <% @store.products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product_path(product) %></td>
+        <td><%= product.variant_name %></td>
+        <td><%= render 'products/stock_status', :@product => product %></td>
+        <td><%= render 'products/price', :@product => product %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
