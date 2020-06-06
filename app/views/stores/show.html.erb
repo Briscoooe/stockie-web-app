@@ -1,6 +1,17 @@
-<h1 class="title is-1"><%= @store.name %></h1>
-<%= link_to @store.url, :class => "subtitle" %>
-<h1 class="subtitle">Current Products</h1>
+<div class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <h1 class="page-title"><%= @store.name %></h1>
+    </div>
+    <div class="level-item">
+      <span class="icon has-text-info">
+          <%= fa_icon 'home' %>
+      </span>
+      <h3 class="subtitle"><%= link_to @store.url, class: "subtitle is-4" %></h3>
+    </div>
+  </div>
+</div>
+<h1 class="subtitle is-4">Current Products</h1>
 <div class="table-container">
   <table class="main-table">
     <tr>

@@ -47,3 +47,8 @@ a {
     @extend .is-hoverable;
     @extend .is-fullwidth;
 }
+
+.page-title {
+    @extend .title;
+    @extend .is-2;
+}
