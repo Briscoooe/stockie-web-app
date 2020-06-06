@@ -1,8 +1,9 @@
-<nav class="navbar" style="border-radius:0" role="navigation" aria-label="main navigation">
+<nav class="navbar is-spaced" style="border-radius:0" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <h1 class="navbar-item title">
       Stockie
     </h1>
+    <%=  %>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExample", onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
       <span aria-hidden="true"></span>
@@ -13,11 +14,11 @@
 
   <div id="navbarExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to "Products", products_path, class: "navbar-item" %>
+      <%= link_to "Products", products_path, class: nav_item_is_active?(products_path) %>
 
-      <%= link_to "Stores", stores_path, class: "navbar-item" %>
+      <%= link_to "Stores", stores_path, class: nav_item_is_active?(stores_path) %>
 
-      <%= link_to "Categories", categories_path, class: "navbar-item" %>
+      <%= link_to "Categories", categories_path, class: nav_item_is_active?(categories_path)%>
     </div>
 
     <div class="navbar-end">
