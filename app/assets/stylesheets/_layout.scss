@@ -1,10 +1,16 @@
 @import 'bulma/bulma';
 
+/*
+    Global colours
+*/
 $primary-dark-color: rgb(29, 53, 87);
 $primary-light-color: rgb(80, 179, 145);
 $link-color: rgb(34, 146, 164);
 $primary-black: rgb(35, 37, 40);
 
+/*
+    Navbar
+*/
 .navbar {
     background-color: $primary-dark-color;
     a, h1 {
@@ -30,27 +36,41 @@ $primary-black: rgb(35, 37, 40);
     padding: 0;
 }
 
+/*
+    Buttons
+*/
 .button.is-primary {
     background-color: $primary-light-color;
-    :hover {
-        background-color: darken( $primary-light-color, 20% );
-        color: black;
+    &:hover {
+        background-color: darken( $primary-light-color, 10% );
     }
 }
 
+/*
+    Text
+*/
 a {
     color: $link-color
 }
+.page-title {
+    @extend .title;
+    @extend .is-size-2;
+}
 
 
+/*
+    Table
+*/
 .main-table {
     @extend .table;
     @extend .is-striped;
     @extend .is-hoverable;
     @extend .is-fullwidth;
 }
-
-.page-title {
-    @extend .title;
-    @extend .is-size-2;
+/*
+    Spacings
+*/
+.has-vertical-padding-1 {
+    padding-top: .25em;
+    padding-bottom: .25em;
 }

@@ -19,18 +19,18 @@
     </header>
     <section class="section">
       <div class="container">
-        <% if notice %>
-          <div class="notification is-primary is-light">
-            <p class="alert alert-success"><%= notice %></p>
-          </div>
-        <% end %>
-        <% if alert %>
-          <div class="notification is-danger is-light">
-            <p class="alert alert-danger"><%= alert %></p>
-          </div>
-        <% end %>
         <div class="columns is-centered">
           <div class="column is-two-thirds">
+            <% if notice %>
+              <div class="notification is-primary is-light">
+                <p class="alert alert-success"><%= notice %></p>
+            </div>
+            <% end %>
+            <% if alert %>
+              <div class="notification is-danger is-light">
+                <p class="alert alert-danger"><%= alert %></p>
+              </div>
+            <% end %>
             <%= yield %>
           </div>
         </div>
