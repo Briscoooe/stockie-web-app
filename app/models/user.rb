@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :subscriptions
+
+  validates :phone, format: { with: /\A\+?\d*\z/, message: "Phone must start with + and country code e.g. +353"}
 end

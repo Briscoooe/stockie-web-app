@@ -60,3 +60,7 @@ gem "font-awesome-rails"
 gem 'dotenv-rails'
 
 gem 'aws-sdk-sns', '~> 1'
+
+gem 'jquery-rails'
+
+gem 'intl-tel-input-rails'
